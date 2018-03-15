@@ -1,0 +1,1 @@
+﻿Este SDK (Software Development Kit) para o Boleto Fácil tem como objetivo abstrair, para desenvolvedores de aplicações Java, os detalhes de comunicação com a API do Boleto Fácil, tanto com o servidor de produção como com o servidor de testes (sandbox), de modo que o desenvolvedor possa se concentrar na lógica de negócio de sua aplicação.

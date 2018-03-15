@@ -1,15 +1,28 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
-    <projectUrl>http://www.boletobancario.com</projectUrl>
+    <id>boletofacilsdk</id>
+    <version>1.0.0</version>
+    <title>Boleto Fácil SDK .NET</title>
+    <authors>maurelio79</authors>
+    <owners>BoletoBancario.com</owners>
+    <projectUrl>https://github.com/boletofacil/boletofacil-sdk-net</projectUrl>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <tags>boleto boletofácil sdk net api</tags>
+    <description>SDK .NET para integração com a API do Boleto Fácil.</description>
+    <summary>SDK .NET para o Boleto Fácil.</summary>
+    <copyright>BoletoBancario.com 2018</copyright>
     <releaseNotes>Versão inicial.</releaseNotes>
-    <copyright>Copyright 2017</copyright>
+    <dependencies>
+      <group targetFramework=".NETPortable4.5-Profile7">
+        <dependency id="Newtonsoft.Json" version="11.0.1" />
+      </group>
+    </dependencies>
   </metadata>
+  <files>
+    <file src="bin/Release/BoletoFacilSDK.dll" target="lib/portable45-net45+win8/BoletoFacilSDK.dll" />
+    <file src="bin/Release/BoletoFacilSDK.xml" target="lib/portable45-net45+win8/BoletoFacilSDK.xml" />
+    <file src="readme.txt" target="" />
+  </files>
 </package>
