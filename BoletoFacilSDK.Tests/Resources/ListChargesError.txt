@@ -1,0 +1,4 @@
+﻿{
+    "success":false,
+    "errorMessage":"Favor informar a data de início de vencimento ou de pagamento"
+}

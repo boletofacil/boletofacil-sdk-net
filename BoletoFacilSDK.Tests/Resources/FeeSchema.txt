@@ -1,0 +1,7 @@
+﻿{
+    "success": true,
+    "data" : {
+        "id" : 123,
+        "feeSchemaToken" : "37515135CBD4FA0176F77F944C15F064CB714C75FE23685B9EC84693A05B10F783FDC05C31BF5800"
+    }
+}

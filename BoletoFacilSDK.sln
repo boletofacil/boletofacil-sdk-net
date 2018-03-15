@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletoFacilSDK", "BoletoFacilSDK\BoletoFacilSDK.csproj", "{9D4C34CB-0D56-4889-871E-699967D5DB4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletoFacilSDK.UsageExample", "BoletoFacilSDK.UsageExample\BoletoFacilSDK.UsageExample.csproj", "{DA51351F-EA9B-478B-9FE6-E378F4A4712D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletoFacilSDK.Tests", "BoletoFacilSDK.Tests\BoletoFacilSDK.Tests.csproj", "{18568C90-605A-41F0-90EB-710583B9E7C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D4C34CB-0D56-4889-871E-699967D5DB4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4C34CB-0D56-4889-871E-699967D5DB4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4C34CB-0D56-4889-871E-699967D5DB4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4C34CB-0D56-4889-871E-699967D5DB4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA51351F-EA9B-478B-9FE6-E378F4A4712D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA51351F-EA9B-478B-9FE6-E378F4A4712D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA51351F-EA9B-478B-9FE6-E378F4A4712D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA51351F-EA9B-478B-9FE6-E378F4A4712D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18568C90-605A-41F0-90EB-710583B9E7C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18568C90-605A-41F0-90EB-710583B9E7C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18568C90-605A-41F0-90EB-710583B9E7C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18568C90-605A-41F0-90EB-710583B9E7C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+	EndGlobalSection
+EndGlobal

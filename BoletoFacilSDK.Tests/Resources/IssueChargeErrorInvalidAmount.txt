@@ -1,0 +1,4 @@
+﻿{
+    "success":false,
+    "errorMessage":"Valor mínimo para cobrança é de R$ 2,50"
+}

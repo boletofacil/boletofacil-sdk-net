@@ -1,0 +1,25 @@
+﻿{
+    "success": true,
+    "data": {
+        "charges":[
+            {
+                "code": 101,
+                "dueDate": "19/02/2013",
+                "link": "https://boletofacil/boleto?token=23:m:3454",
+                "payNumber": "03399.63290 64000.001014 00236.601027 8 67150000004115"
+            },
+            {
+                "code": 102,
+                "dueDate": "19/03/2013",
+                "link": "https://boletofacil/boleto?token=23:m:3454",
+                "payNumber": "03399.63290 64000.001014 00236.601027 8 67250000004115"
+            },
+            {
+                "code": 103,
+                "dueDate": "19/04/2013",
+                "link": "https://boletofacil/boleto?token=23:m:3454",
+                "payNumber": "03399.63290 64000.001014 00236.601027 8 67350000004115"
+            }
+        ]
+    }
+}
