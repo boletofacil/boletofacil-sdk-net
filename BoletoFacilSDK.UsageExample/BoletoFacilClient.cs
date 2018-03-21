@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BoletoFacilSDK.Enums;
 using BoletoFacilSDK.Exceptions;
 using BoletoFacilSDK.Model.Entities;
@@ -108,6 +109,7 @@ namespace BoletoFacilSDK.UsageExample
             charge.Description = "Cobrança teste gerada pelo SDK .NET";
             charge.Amount = 176.45m;
             charge.Payer = payer;
+            charge.PaymentTypes = new PaymentType[] { PaymentType.BOLETO, PaymentType.CREDIT_CARD };
 
             try
             {
@@ -266,6 +268,7 @@ namespace BoletoFacilSDK.UsageExample
             payee.AccountHolder = new Person { Name = "Favorecido do SDK .NET", CpfCnpj = cpfCnpj };
             payee.BankAccount = new BankAccount
             {
+                BankAccountType = BankAccountType.CHECKING,
                 BankNumber = "237",
                 AgencyNumber = "123",
                 AccountNumber = "4567",

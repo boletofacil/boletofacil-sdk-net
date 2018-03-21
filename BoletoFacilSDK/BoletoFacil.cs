@@ -156,6 +156,13 @@ namespace BoletoFacilSDK
             AddUriParameter(requestUri, "notificationUrl", $"{charge.NotificationUrl}");
             AddUriParameter(requestUri, "feeSchemaToken", $"{charge.FeeSchemaToken}");
             AddUriParameter(requestUri, "splitRecipient", $"{charge.SplitRecipient}");
+            AddUriParameter(requestUri, "paymentTypes", string.Join(",", charge.PaymentTypes));
+            AddUriParameter(requestUri, "creditCardNumber", charge.CreditCard?.Number);
+            AddUriParameter(requestUri, "creditCardHolderName", charge.CreditCard?.HolderName);
+            AddUriParameter(requestUri, "creditCardSecurityCode", $"{charge.CreditCard?.SecurityCode}");
+            AddUriParameter(requestUri, "creditCardExpirationMonth", $"{charge.CreditCard?.ExpirationMonth}");
+            AddUriParameter(requestUri, "creditCardExpirationYear", $"{charge.CreditCard?.ExpirationYear}");
+            AddUriParameter(requestUri, "paymentAdvance", $"{charge.PaymentAdvance}");
         }
 
         void AddRequestTransferParameters(StringBuilder requestUri, Transfer transfer)

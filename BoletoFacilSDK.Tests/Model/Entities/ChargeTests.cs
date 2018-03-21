@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BoletoFacilSDK.Model.Entities;
 using BoletoFacilSDK.Model.Entities.Enums;
@@ -30,6 +31,9 @@ namespace BoletoFacilSDK.Tests.Model.Entities
             Assert.IsNull(obj.ReferralToken);
             Assert.IsNull(obj.FeeSchemaToken);
             Assert.IsNull(obj.SplitRecipient);
+            Assert.IsNull(obj.PaymentTypes);
+            Assert.IsNull(obj.CreditCard);
+            Assert.IsNull(obj.PaymentAdvance);
             Assert.IsNull(obj.Code);
             Assert.IsNull(obj.Link);
             Assert.IsNull(obj.PayNumber);
@@ -54,6 +58,9 @@ namespace BoletoFacilSDK.Tests.Model.Entities
             obj.ReferralToken = "ABC123";
             obj.FeeSchemaToken = "XPTO7890";
             obj.SplitRecipient = "123.456.789-00";
+            obj.PaymentTypes = new PaymentType[1];
+            obj.CreditCard = new CreditCard();
+            obj.PaymentAdvance = false;
             obj.Code = "11223344";
             obj.Link = "https://www.boletobancario.com/link";
             obj.PayNumber = "23700.123456.789123.546543.79810000012345";
@@ -78,6 +85,10 @@ namespace BoletoFacilSDK.Tests.Model.Entities
             Assert.AreEqual("ABC123", obj.ReferralToken);
             Assert.AreEqual("XPTO7890", obj.FeeSchemaToken);
             Assert.AreEqual("123.456.789-00", obj.SplitRecipient);
+            Assert.IsNotNull(obj.PaymentTypes);
+            Assert.IsNotNull(obj.CreditCard);
+            Assert.IsNotNull(obj.PaymentAdvance);
+            Assert.IsFalse(obj.PaymentAdvance.Value);
             Assert.AreEqual("11223344", obj.Code);
             Assert.AreEqual("https://www.boletobancario.com/link", obj.Link);
             Assert.AreEqual("23700.123456.789123.546543.79810000012345", obj.PayNumber);
@@ -108,6 +119,9 @@ namespace BoletoFacilSDK.Tests.Model.Entities
             obj.ReferralToken = "ABC123";
             obj.FeeSchemaToken = "XPTO7890";
             obj.SplitRecipient = "123.456.789-00";
+            obj.PaymentTypes = new PaymentType[] { PaymentType.BOLETO, PaymentType.CREDIT_CARD };
+            obj.CreditCard = new CreditCard();
+            obj.PaymentAdvance = false;
             obj.Code = "11223344";
             obj.Link = "https://www.boletobancario.com/link";
             obj.PayNumber = "23700.123456.789123.546543.79810000012345";
@@ -166,6 +180,15 @@ namespace BoletoFacilSDK.Tests.Model.Entities
                             "ReferralToken: ABC123" + Environment.NewLine +
                             "FeeSchemaToken: XPTO7890" + Environment.NewLine +
                             "SplitRecipient: 123.456.789-00" + Environment.NewLine +
+                            "PaymentTypes: [" + Environment.NewLine +
+                            "BOLETO," + Environment.NewLine +
+                            "CREDIT_CARD] " + Environment.NewLine +
+                            "CreditCard: Number: " + Environment.NewLine +
+                            "HolderName: " + Environment.NewLine +
+                            "SecurityCode: " + Environment.NewLine +
+                            "ExpirationMonth: " + Environment.NewLine +
+                            "ExpirationYear: " + Environment.NewLine + Environment.NewLine +
+                            "PaymentAdvance: False" + Environment.NewLine +
                             "Code: 11223344" + Environment.NewLine +
                             "Link: https://www.boletobancario.com/link" + Environment.NewLine +
                             "PayNumber: 23700.123456.789123.546543.79810000012345" + Environment.NewLine +

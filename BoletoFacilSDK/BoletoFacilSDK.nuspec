@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>boletofacilsdk</id>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <title>Boleto Fácil SDK .NET</title>
     <authors>maurelio79</authors>
     <owners>BoletoBancario.com</owners>

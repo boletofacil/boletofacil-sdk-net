@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.props')" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,13 +11,18 @@
     <AssemblyName>BoletoFacilSDK</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
-    <Description>SDK .NET para integração com o Boleto Fácil.</Description>
-    <ReleaseVersion>1.0.0</ReleaseVersion>
+    <Description>SDK .NET para integração com a API do Boleto Fácil.</Description>
+    <ReleaseVersion>1.0.2</ReleaseVersion>
     <PackageId>boletofacilsdk</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.2</PackageVersion>
     <Authors>marco-boleto</Authors>
     <Owners>BoletoBancario.com</Owners>
     <Title>Boleto Fácil SDK .NET</Title>
+    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/boletofacil/boletofacil-sdk-net</PackageProjectUrl>
+    <PackageReleaseNotes>Adicionados campos paymentTypes, creditCard e paymentAdvance na classe Charge.</PackageReleaseNotes>
+    <Summary>SDK .NET para o Boleto Fácil.</Summary>
+    <PackageTags>boleto boletofácil sdk net api</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -82,6 +87,7 @@
     <Compile Include="Enums\RequestType.cs" />
     <Compile Include="Model\Entities\Enums\PaymentType.cs" />
     <Compile Include="Model\Entities\Enums\PaymentStatus.cs" />
+    <Compile Include="Model\Entities\CreditCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BoletoFacilSDK.nuspec" />
@@ -95,5 +101,5 @@
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.0\build\NuGet.Build.Packaging.targets')" />
+  <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets')" />
 </Project>

@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
+using BoletoFacilSDK.Model.Entities.Enums;
 
 namespace BoletoFacilSDK.Model.Entities
 {
@@ -41,6 +42,12 @@ namespace BoletoFacilSDK.Model.Entities
         public string FeeSchemaToken { get; set; }
         [XmlElement("splitRecipient"), XmlIgnore]
         public string SplitRecipient { get; set; }
+        [XmlElement("paymentTypes"), XmlIgnore]
+        public PaymentType[] PaymentTypes { get; set; }
+        [XmlElement("creditCard"), XmlIgnore]
+        public CreditCard CreditCard { get; set; }
+        [XmlElement("paymentAdvance"), XmlIgnore]
+        public bool? PaymentAdvance { get; set; }
         [DataMember, XmlElement("code")]
         public string Code { get; set; }
         [DataMember, XmlElement("link")]
