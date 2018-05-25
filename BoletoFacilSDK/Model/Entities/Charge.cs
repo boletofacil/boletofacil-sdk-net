@@ -48,6 +48,10 @@ namespace BoletoFacilSDK.Model.Entities
         public CreditCard CreditCard { get; set; }
         [XmlElement("paymentAdvance"), XmlIgnore]
         public bool? PaymentAdvance { get; set; }
+		[XmlElement("creditCardHash"), XmlIgnore]
+		public string CreditCardHash { get; set; }
+
+
         [DataMember, XmlElement("code")]
         public string Code { get; set; }
         [DataMember, XmlElement("link")]

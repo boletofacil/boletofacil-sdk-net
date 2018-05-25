@@ -14,5 +14,9 @@ namespace BoletoFacilSDK.Model.Request
         public DateTime? BeginPaymentDate { get; set; }
         [DataMember]
         public DateTime? EndPaymentDate { get; set; }
+		[DataMember]
+		public DateTime? BeginPaymentConfirmation { get; set; }
+        [DataMember]
+		public DateTime? EndPaymentConfirmation { get; set; }
     }
 }

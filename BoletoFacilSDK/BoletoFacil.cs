@@ -162,6 +162,7 @@ namespace BoletoFacilSDK
             AddUriParameter(requestUri, "creditCardSecurityCode", $"{charge.CreditCard?.SecurityCode}");
             AddUriParameter(requestUri, "creditCardExpirationMonth", $"{charge.CreditCard?.ExpirationMonth}");
             AddUriParameter(requestUri, "creditCardExpirationYear", $"{charge.CreditCard?.ExpirationYear}");
+			AddUriParameter(requestUri, "creditCardHash", $"{charge.CreditCardHash}");
             AddUriParameter(requestUri, "paymentAdvance", $"{charge.PaymentAdvance}");
         }
 
@@ -181,6 +182,8 @@ namespace BoletoFacilSDK
             AddUriParameter(requestUri, "endDueDate", $"{dates.EndDueDate:dd/MM/yyyy}");
             AddUriParameter(requestUri, "beginPaymentDate", $"{dates.BeginPaymentDate:dd/MM/yyyy}");
             AddUriParameter(requestUri, "endPaymentDate", $"{dates.EndPaymentDate:dd/MM/yyyy}");
+			AddUriParameter(requestUri, "beginPaymentConfirmation", $"{dates.BeginPaymentConfirmation:dd/MM/yyyy}");
+			AddUriParameter(requestUri, "endPaymentConfirmation", $"{dates.EndPaymentConfirmation:dd/MM/yyyy}");
         }
 
         void AddCreatePayeeParameters(StringBuilder requestUri, Payee payee)

@@ -34,6 +34,7 @@ namespace BoletoFacilSDK.Tests.Model.Entities
             Assert.IsNull(obj.PaymentTypes);
             Assert.IsNull(obj.CreditCard);
             Assert.IsNull(obj.PaymentAdvance);
+			Assert.IsNull(obj.CreditCardHash);
             Assert.IsNull(obj.Code);
             Assert.IsNull(obj.Link);
             Assert.IsNull(obj.PayNumber);
@@ -61,6 +62,7 @@ namespace BoletoFacilSDK.Tests.Model.Entities
             obj.PaymentTypes = new PaymentType[1];
             obj.CreditCard = new CreditCard();
             obj.PaymentAdvance = false;
+			obj.CreditCardHash = "HASH11223344";
             obj.Code = "11223344";
             obj.Link = "https://www.boletobancario.com/link";
             obj.PayNumber = "23700.123456.789123.546543.79810000012345";
@@ -68,6 +70,7 @@ namespace BoletoFacilSDK.Tests.Model.Entities
             obj.BilletDetails = new BilletDetails();
             obj.Payments = new Payment[1];
             obj.DueDateString = $"{DateTime.Today:dd/MM/yyyy}";
+
             Assert.AreEqual("Charge description", obj.Description);
             Assert.AreEqual("Reference number", obj.Reference);
             Assert.AreEqual(decimal.MaxValue, obj.Amount);
@@ -89,7 +92,8 @@ namespace BoletoFacilSDK.Tests.Model.Entities
             Assert.IsNotNull(obj.CreditCard);
             Assert.IsNotNull(obj.PaymentAdvance);
             Assert.IsFalse(obj.PaymentAdvance.Value);
-            Assert.AreEqual("11223344", obj.Code);
+			Assert.AreEqual("HASH11223344", obj.CreditCardHash);
+			Assert.AreEqual("11223344", obj.Code);
             Assert.AreEqual("https://www.boletobancario.com/link", obj.Link);
             Assert.AreEqual("23700.123456.789123.546543.79810000012345", obj.PayNumber);
             Assert.AreEqual("https://www.boletobancario.com/checkout", obj.CheckoutUrl);
@@ -122,6 +126,7 @@ namespace BoletoFacilSDK.Tests.Model.Entities
             obj.PaymentTypes = new PaymentType[] { PaymentType.BOLETO, PaymentType.CREDIT_CARD };
             obj.CreditCard = new CreditCard();
             obj.PaymentAdvance = false;
+			obj.CreditCardHash = "HASH11223344";
             obj.Code = "11223344";
             obj.Link = "https://www.boletobancario.com/link";
             obj.PayNumber = "23700.123456.789123.546543.79810000012345";
@@ -189,6 +194,7 @@ namespace BoletoFacilSDK.Tests.Model.Entities
                             "ExpirationMonth: " + Environment.NewLine +
                             "ExpirationYear: " + Environment.NewLine + Environment.NewLine +
                             "PaymentAdvance: False" + Environment.NewLine +
+			                "CreditCardHash: HASH11223344" + Environment.NewLine +
                             "Code: 11223344" + Environment.NewLine +
                             "Link: https://www.boletobancario.com/link" + Environment.NewLine +
                             "PayNumber: 23700.123456.789123.546543.79810000012345" + Environment.NewLine +
