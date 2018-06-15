@@ -14,13 +14,13 @@
     <Description>SDK .NET para integração com a API do Boleto Fácil.</Description>
     <ReleaseVersion>1.0.2</ReleaseVersion>
     <PackageId>boletofacilsdk</PackageId>
-    <PackageVersion>1.0.4</PackageVersion>
+    <PackageVersion>1.0.5</PackageVersion>
     <Authors>marco-boleto</Authors>
     <Owners>BoletoBancario.com</Owners>
     <Title>Boleto Fácil SDK .NET</Title>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/boletofacil/boletofacil-sdk-net</PackageProjectUrl>
-    <PackageReleaseNotes>Adicionados campos creditCardHash (Charge) e beginPaymentConfirmation e endPaymentConfirmation (ListChargesDates).</PackageReleaseNotes>
+    <PackageReleaseNotes>Revisão na versão mínima necessária do pacote NewtonSoft.Json.</PackageReleaseNotes>
     <Summary>SDK .NET para o Boleto Fácil.</Summary>
     <PackageTags>boleto boletofácil sdk net api</PackageTags>
   </PropertyGroup>
@@ -97,7 +97,7 @@
   <ItemGroup />
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
