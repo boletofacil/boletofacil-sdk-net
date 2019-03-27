@@ -70,6 +70,11 @@ namespace BoletoFacilSDK.UsageExample
                         GetPayeeStatus();
                         break;
                     case ConsoleKey.D9:
+
+                        FetchPaymentDetails();
+                        break;
+
+                    case ConsoleKey.D0:
                         return;
                     default:
                         validOption = false;
@@ -91,7 +96,8 @@ namespace BoletoFacilSDK.UsageExample
             Console.WriteLine("6) Criar um favorecido");
             Console.WriteLine("7) Criar esquema de taxas");
             Console.WriteLine("8) Consultar status de favorecido");
-            Console.WriteLine("9) Encerrar o programa");
+            Console.WriteLine("9) Para  consultar detalhes do pagamento");
+            Console.WriteLine("10) Encerrar o programa");
             Console.WriteLine("");
             Console.WriteLine("Entre a opção desejada:");
             return Console.ReadKey();
@@ -107,9 +113,10 @@ namespace BoletoFacilSDK.UsageExample
 
             Charge charge = new Charge();
             charge.Description = "Cobrança teste gerada pelo SDK .NET";
-            charge.Amount = 176.45m;
+            charge.Amount = 5M;
             charge.Payer = payer;
             charge.PaymentTypes = new PaymentType[] { PaymentType.BOLETO, PaymentType.CREDIT_CARD };
+            charge.NotificationUrl = @"http://4315a9c8.ngrok.io/api/values/boleto-facil";
 
             try
             {
@@ -355,6 +362,38 @@ namespace BoletoFacilSDK.UsageExample
                 DoneMessage();
             }
         }
+
+
+        void FetchPaymentDetails()
+        {
+            string token = null;
+
+            while (String.IsNullOrEmpty(token))
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Entre o token do pagamento:");
+                token = Console.ReadLine();
+            }
+
+            try
+            {
+              var payment = new Payment();
+                payment.PaymentToken = token;
+                var response = boletoFacil.FetchPaymentDetails(payment);
+                ShowObjectResponseHeader();
+                Console.WriteLine(response);
+                ShowResponseSerialized(response);
+            }
+            catch (BoletoFacilException e)
+            {
+                HandleException(e);
+            }
+            finally
+            {
+                DoneMessage();
+            }
+        }
+
 
         #endregion
 

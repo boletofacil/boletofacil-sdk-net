@@ -35,5 +35,7 @@ namespace BoletoFacilSDK.Model.Entities
             get { return Date?.ToString("dd/MM/yyyy"); }
             set { Date = DateTime.ParseExact(value, "dd/MM/yyyy", CultureInfo.InvariantCulture); }
         }
+        [DataMember, XmlElement("paymentToken")]
+        public string PaymentToken { get; set; }
     }
 }

@@ -57,6 +57,13 @@ namespace BoletoFacilSDK
             return Request<FetchBalanceResponse>(requestUri, responseType);
         }
 
+        public PaymentResponse FetchPaymentDetails(Payment payment, ResponseType responseType = ResponseType.JSON)
+        {
+            StringBuilder requestUri = new StringBuilder($"{EndPoint}/fetch-payment-details?");
+            AddRequestParameters(requestUri, RequestType.FetchPaymentDetails, payment);
+            return PostRequest<PaymentResponse>(requestUri, responseType);
+        }
+
         public CancelChargeResponse CancelCharge(Charge charge, ResponseType responseType = ResponseType.JSON)
         {
             StringBuilder requestUri = new StringBuilder($"{EndPoint}/cancel-charge?");
@@ -123,6 +130,11 @@ namespace BoletoFacilSDK
                 case RequestType.GetPayeeStatus:
                     Payee payeeToGetStatus = entity as Payee;
                     AddGetPayeeStatusParameters(requestUri, payeeToGetStatus);
+                    break;
+
+                case RequestType.FetchPaymentDetails:
+                    var paymentToGetDetails = entity as Payment;
+                    AddCreateFetchPaymentDetailsParameters(requestUri, paymentToGetDetails);
                     break;
             }
         }
@@ -237,6 +249,11 @@ namespace BoletoFacilSDK
             AddUriParameter(requestUri, "splitFixed", $"{split.SplitFixed:F2}");
             AddUriParameter(requestUri, "splitVariable", $"{split.SplitVariable:F2}");
             AddUriParameter(requestUri, "splitTriggerAmount", $"{split.SplitTriggerAmount:F2}");
+        }
+
+        void AddCreateFetchPaymentDetailsParameters(StringBuilder requestUri, Payment payment)
+        {
+            AddUriParameter(requestUri, "paymentToken", payment.PaymentToken);
         }
 
         #endregion
