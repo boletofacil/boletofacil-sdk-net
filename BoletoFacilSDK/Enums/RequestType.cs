@@ -9,6 +9,7 @@
         CancelCharge,
         CreatePayee,
         CreatePayeeFeeSchema,
-        GetPayeeStatus
+        GetPayeeStatus,
+        FetchPaymentDetails,
     }
 }

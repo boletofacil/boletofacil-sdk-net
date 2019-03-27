@@ -23,6 +23,8 @@
     <PackageReleaseNotes>Revisão na versão mínima necessária do pacote NewtonSoft.Json.</PackageReleaseNotes>
     <Summary>SDK .NET para o Boleto Fácil.</Summary>
     <PackageTags>boleto boletofácil sdk net api</PackageTags>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Enums\ResponseType.cs" />
     <Compile Include="Model\Entities\BilletDetails.cs" />
+    <Compile Include="Model\Entities\PaymentList.cs" />
+    <Compile Include="Model\Response\PaymentResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Exceptions\BoletoFacilTokenException.cs" />
     <Compile Include="Exceptions\BoletoFacilException.cs" />
@@ -94,12 +98,18 @@
     <None Include="packages.config" />
     <None Include="readme.txt" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.props'))" />
+    <Error Condition="!Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets'))" />
+  </Target>
   <Import Project="..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.2.2\build\NuGet.Build.Packaging.targets')" />
 </Project>
