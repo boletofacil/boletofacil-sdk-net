@@ -14,6 +14,9 @@ namespace BoletoFacilSDK.Model.Entities
         [DataMember, XmlElement("id")]
         public long? Id { get; set; }
 
+        [DataMember, XmlElement("creditCardId")]
+        public string CreditCardId { get; set; }
+
         [DataMember, XmlElement("amount")]
         public decimal? Amount { get; set; }
 

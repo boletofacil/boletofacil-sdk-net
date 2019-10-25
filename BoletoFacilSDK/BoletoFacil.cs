@@ -132,6 +132,7 @@ namespace BoletoFacilSDK
             AddUriParameter(requestUri, "description", charge.Description);
             AddUriParameter(requestUri, "reference", charge.Reference);
             AddUriParameter(requestUri, "amount", $"{charge.Amount:F2}");
+            AddUriParameter(requestUri, "totalAmount", $"{charge.TotalAmount:F2}");
             AddUriParameter(requestUri, "dueDate", charge.DueDate > DateTime.MinValue ? $"{charge.DueDate:dd/MM/yyyy}" : String.Empty);
             AddUriParameter(requestUri, "installments", $"{charge.Installments}");
             AddUriParameter(requestUri, "maxOverdueDays", $"{charge.MaxOverdueDays}");
@@ -156,13 +157,11 @@ namespace BoletoFacilSDK
             AddUriParameter(requestUri, "notificationUrl", $"{charge.NotificationUrl}");
             AddUriParameter(requestUri, "feeSchemaToken", $"{charge.FeeSchemaToken}");
             AddUriParameter(requestUri, "splitRecipient", $"{charge.SplitRecipient}");
+            AddUriParameter(requestUri, "referralToken", charge.ReferralToken);
             AddUriParameter(requestUri, "paymentTypes", charge.PaymentTypes == null ? null : string.Join(",", charge.PaymentTypes));
-            AddUriParameter(requestUri, "creditCardNumber", charge.CreditCard?.Number);
-            AddUriParameter(requestUri, "creditCardHolderName", charge.CreditCard?.HolderName);
-            AddUriParameter(requestUri, "creditCardSecurityCode", $"{charge.CreditCard?.SecurityCode}");
-            AddUriParameter(requestUri, "creditCardExpirationMonth", $"{charge.CreditCard?.ExpirationMonth}");
-            AddUriParameter(requestUri, "creditCardExpirationYear", $"{charge.CreditCard?.ExpirationYear}");
-			AddUriParameter(requestUri, "creditCardHash", $"{charge.CreditCardHash}");
+            AddUriParameter(requestUri, "creditCardHash", $"{charge.CreditCardHash}");
+            AddUriParameter(requestUri, "creditCardStore", $"{charge.CreditCardStore}");
+            AddUriParameter(requestUri, "creditCardId", $"{charge.CreditCardId}");
             AddUriParameter(requestUri, "paymentAdvance", $"{charge.PaymentAdvance}");
         }
 
