@@ -1,40 +1,40 @@
-## SDK .NET para integra√ß√£o com o Boleto F√°cil
+## SDK .NET para integraÁ„o com o Boleto F·cil
 
-Este SDK (Software Development Kit) para o Boleto F√°cil tem como objetivo abstrair, para desenvolvedores de aplica√ß√µes na plataforma .NET, os detalhes de comunica√ß√£o com a [API do Boleto F√°cil](https://www.boletobancario.com/boletofacil/integration/integration.html), tanto com o servidor de [produ√ß√£o](https://www.boletobancario.com/boletofacil/) como com o servidor de testes ([sandbox](https://sandbox.boletobancario.com/boletofacil/)), de modo que o desenvolvedor possa se concentrar na l√≥gica de neg√≥cio de sua aplica√ß√£o.
+Este SDK (Software Development Kit) para o Boleto F·cil tem como objetivo abstrair, para desenvolvedores de aplicaÁıes na plataforma .NET, os detalhes de comunicaÁ„o com a [API do Boleto F·cil](https://www.boletobancario.com/boletofacil/integration/integration.html), tanto com o servidor de [produÁ„o](https://www.boletobancario.com/boletofacil/) como com o servidor de testes ([sandbox](https://sandbox.boletobancario.com/boletofacil/)), de modo que o desenvolvedor possa se concentrar na lÛgica de negÛcio de sua aplicaÁ„o.
 
 ## Requisitos
 
 * Portable Class Library (.NETFramework 4.5, Windows 8.0)
 
-## Integra√ß√£o
+## IntegraÁ„o
 
 #### NuGet
 
-O SDK .NET do Boleto F√°cil est√° dispon√≠vel no NuGet: https://www.nuget.org/packages/boletofacilsdk
+O SDK .NET do Boleto F·cil est· disponÌvel no NuGet: https://www.nuget.org/packages/boletofacilsdk
 
-## Limita√ß√µes
+## LimitaÁıes
 
-O √∫nico item da API do Boleto F√°cil que essa SDK n√£o contempla √© a [notifica√ß√£o de pagamentos](https://www.boletobancario.com/boletofacil/integration/integration.html#notificacao) para aplica√ß√µes Web, atrav√©s da URL de notifica√ß√£o. Nesse caso, tanto a l√≥gica de captura das requisi√ß√µes POST enviadas pelo Boleto F√°cil com os dados dos pagamentos como a l√≥gica da baixa das cobran√ßas pagas ficam a cargo do sistema integrado com o Boleto F√°cil.
+O ˙nico item da API do Boleto F·cil que essa SDK n„o contempla È a [notificaÁ„o de pagamentos](https://www.boletobancario.com/boletofacil/integration/integration.html#notificacao) para aplicaÁıes Web, atravÈs da URL de notificaÁ„o. Nesse caso, tanto a lÛgica de captura das requisiÁıes POST enviadas pelo Boleto F·cil com os dados dos pagamentos como a lÛgica da baixa das cobranÁas pagas ficam a cargo do sistema integrado com o Boleto F·cil.
 
 ## Guia de uso
 
-Para usar o SDK do Boleto F√°cil √© necess√°rio definir dois itens:
+Para usar o SDK do Boleto F·cil È necess·rio definir dois itens:
 
-1. O ambiente: produ√ß√£o (`PRODUCTION`) ou testes (`SANDBOX`)
-2. O token do favorecido, o qual deve ser definido na √°rea de **integra√ß√£o** do ambiente escolhido ([aqui](https://www.boletobancario.com/boletofacil/integration/integration.html#token) para produ√ß√£o ou [aqui](https://sandbox.boletobancario.com/boletofacil/integration/integration.html#token) para sandbox)
+1. O ambiente: produÁ„o (`PRODUCTION`) ou testes (`SANDBOX`)
+2. O token do favorecido, o qual deve ser definido na ·rea de **integraÁ„o** do ambiente escolhido ([aqui](https://www.boletobancario.com/boletofacil/integration/integration.html#token) para produÁ„o ou [aqui](https://sandbox.boletobancario.com/boletofacil/integration/integration.html#token) para sandbox)
 
 Exemplo:
 ```c#
-// Cria uma inst√¢ncia do SDK que ir√° enviar requisi√ß√µes ao ambiente de testes do Boleto F√°cil (Sandbox)
+// Cria uma inst‚ncia do SDK que ir· enviar requisiÁıes ao ambiente de testes do Boleto F·cil (Sandbox)
 BoletoFacil boletoFacil = new BoletoFacil(BoletoFacilEnvironment.SANDBOX, "XYZ12345"); // XYZ12345 is the API key
 ```
 
-### Gerando uma cobran√ßa
+### Gerando uma cobranÁa
 
-`Charge` √© a classe que representa uma cobran√ßa do Boleto F√°cil e que cont√©m os atributos relacionados a ela, que 
-s√£o exatamente os atributos disponibilizados pela API do Boleto F√°cil e podem ser conferidos [aqui](https://www.boletobancario.com/boletofacil/integration/integration.html#cobrancas). 
+`Charge` È a classe que representa uma cobranÁa do Boleto F·cil e que contÈm os atributos relacionados a ela, que 
+s„o exatamente os atributos disponibilizados pela API do Boleto F·cil e podem ser conferidos [aqui](https://www.boletobancario.com/boletofacil/integration/integration.html#cobrancas). 
 
-Dentre os atributos da cobran√ßa est√£o os dados do pagador, que s√£o definidos na classe `Payer`.
+Dentre os atributos da cobranÁa est„o os dados do pagador, que s„o definidos na classe `Payer`.
 
 ```c#
 Payer payer = new Payer();
@@ -42,7 +42,7 @@ payer.Name = "Pagador teste - SDK .NET";
 payer.CpfCnpj = "11122233300";
 
 Charge charge = new Charge();
-charge.Description = "Cobran√ßa teste gerada pelo SDK .NET";
+charge.Description = "CobranÁa teste gerada pelo SDK .NET";
 charge.Amount = 176.45m;
 charge.Payer = payer;
 
@@ -53,12 +53,12 @@ foreach (Charge c in response.Data.Charges)
 }
 ```
 
-A classe `ChargeResponse` indica se a requisi√ß√£o foi bem sucedida ou n√£o (da mesma forma que todas as classes que herdam da superclasse `Response` no SDK) e, al√©m disso, cont√©m a lista de cobran√ßas que foram geradas pela requisi√ß√£o, em uma lista de objetos do tipo `Charge`.
+A classe `ChargeResponse` indica se a requisiÁ„o foi bem sucedida ou n„o (da mesma forma que todas as classes que herdam da superclasse `Response` no SDK) e, alÈm disso, contÈm a lista de cobranÁas que foram geradas pela requisiÁ„o, em uma lista de objetos do tipo `Charge`.
 
 
 ### Consulta de saldo
 
-Por padr√£o, as requisi√ß√µes feitas pelo SDK desserializam o retorno em **JSON** para popular os objetos com as informa√ß√µes das requisi√ß√µes, mas o SDK tamb√©m prov√™ a possibilidade de alterar a formata√ß√£o do retorno da API para **XML**, conforme pode ser visto no exemplo abaixo:
+Por padr„o, as requisiÁıes feitas pelo SDK desserializam o retorno em **JSON** para popular os objetos com as informaÁıes das requisiÁıes, mas o SDK tambÈm provÍ a possibilidade de alterar a formataÁ„o do retorno da API para **XML**, conforme pode ser visto no exemplo abaixo:
 
 ```c#
 FetchBalanceResponse response = boletoFacil.FetchBalance(ResponseType.XML);
@@ -66,9 +66,9 @@ Console.WriteLine(response.Data);
 ```
 
 
-### Solicita√ß√£o de transfer√™ncia
+### SolicitaÁ„o de transferÍncia
 
-Mesmo que se deseje solicitar uma transfer√™ncia com o saldo total, √© necess√°rio passar um par√¢metro da classe `Transfer`, sem o atributo `amount` definido, no caso.
+Mesmo que se deseje solicitar uma transferÍncia com o saldo total, È necess·rio passar um par‚metro da classe `Transfer`, sem o atributo `amount` definido, no caso.
 
 ```c#
 Transfer transfer = new Transfer();
@@ -76,12 +76,12 @@ TransferResponse response = boletoFacil.RequestTransfer(transfer);
 Console.WriteLine(response);
 ```
 
-Como a resposta de solicita√ß√£o transfer√™ncia cont√©m apenas se a requisi√ß√£o foi bem sucedida ou n√£o, n√£o se aplica o m√©todo `getData()` para ela.
+Como a resposta de solicitaÁ„o transferÍncia contÈm apenas se a requisiÁ„o foi bem sucedida ou n„o, n„o se aplica o mÈtodo `getData()` para ela.
 
 
-### Consulta de pagamentos e cobran√ßas
+### Consulta de pagamentos e cobranÁas
 
-Para esta requisi√ß√£o, √© usado um objeto da classe `ListChargesDates` para definir as datas usadas no filtro da consulta. No exemplo abaixo, s√£o usadas apenas as datas de vencimento das cobran√ßas desejadas.
+Para esta requisiÁ„o, È usado um objeto da classe `ListChargesDates` para definir as datas usadas no filtro da consulta. No exemplo abaixo, s„o usadas apenas as datas de vencimento das cobranÁas desejadas.
 
 ```c#
 ListChargesDates dates = new ListChargesDates();
@@ -96,9 +96,9 @@ foreach (Charge c in response.Data.Charges)
 ```
 
 
-### Cria√ß√£o de favorecido (API Avan√ßada)
+### CriaÁ„o de favorecido (API AvanÁada)
 
-A API avan√ßada tamb√©m est√° dispon√≠vel no SDK. Segue abaixo um exemplo de cria√ß√£o de favorecido, com os principais atributos (e objetos) relacionados.
+A API avanÁada tambÈm est· disponÌvel no SDK. Segue abaixo um exemplo de criaÁ„o de favorecido, com os principais atributos (e objetos) relacionados.
 
 ```c#
 Person person = new Person();
@@ -108,7 +108,7 @@ payee.Email = "email@teste.com";
 payee.Password = "senha";
 payee.BirthDate = DateTime.Today.AddYears(-18);
 payee.Phone = "(41) 91234-4321";
-payee.LinesOfBusiness = "Linha de neg√≥cio";
+payee.LinesOfBusiness = "Linha de negÛcio";
 payee.AccountHolder = new Person 
 { 
 	Name = "Favorecido do SDK .NET", 
@@ -139,11 +139,11 @@ if (response.isSuccess()) {
 }
 ```
 
-A tabela com os c√≥digos de munic√≠pio do IBGE pode ser consultada [aqui](http://www.ibge.gov.br/home/geociencias/areaterritorial/area.shtm).
+A tabela com os cÛdigos de municÌpio do IBGE pode ser consultada [aqui](http://www.ibge.gov.br/home/geociencias/areaterritorial/area.shtm).
 
-### Tokeniza√ß√£o do cart√£o de cr√©dito (API Avan√ßada)
+### TokenizaÁ„o do cart„o de crÈdito (API AvanÁada)
 
-A tokeniza√ß√£o permite que o salvamento do cart√£o de cr√©dito para compras futuras no padr√£o PCI. Segue abaixo um exemplo de tokeniza√ß√£o. 
+A tokenizaÁ„o permite que o salvamento do cart„o de crÈdito para compras futuras no padr„o PCI. Segue abaixo um exemplo de tokenizaÁ„o. 
 
 ```c#
 Charge charge = new Charge
@@ -157,14 +157,15 @@ Console.WriteLine(response);
 
 
 
-## Aplica√ß√£o cliente de exemplo
+## AplicaÁ„o cliente de exemplo
 
-Juntamente com o projeto do SDK h√° um outro projeto de um cliente de exemplo (aplica√ß√£o console) que cont√©m exemplos de todas as chamadas disponibilizadas pelo SDK.
+Juntamente com o projeto do SDK h· um outro projeto de um cliente de exemplo (aplicaÁ„o console) que contÈm exemplos de todas as chamadas disponibilizadas pelo SDK.
 
 
 ## Suporte
 
-Em caso de d√∫vidas, problemas ou sugest√µes, n√£o hesite em contatar nossa [equipe de suporte](mailto:suporte@boletobancario.com).
+Em caso de d˙vidas, problemas ou sugestıes, n„o hesite em contatar nossa [equipe de suporte](mailto:suporte@boletobancario.com).
+
 
 
 
