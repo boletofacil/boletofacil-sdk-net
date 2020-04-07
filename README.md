@@ -141,6 +141,20 @@ if (response.isSuccess()) {
 
 A tabela com os códigos de município do IBGE pode ser consultada [aqui](http://www.ibge.gov.br/home/geociencias/areaterritorial/area.shtm).
 
+### Tokenização do cartão de crédito (API Avançada)
+
+A tokenização permite que o salvamento do cartão de crédito para compras futuras no padrão PCI. Segue abaixo um exemplo de tokenização. 
+
+```c#
+Charge charge = new Charge
+{
+    CreditCardHash = "d6f15405-5870-4e30-8eee-db0f42bf74ce"
+};
+
+TokenizationResponse response = boletoFacil.CardTokenization(charge);
+Console.WriteLine(response);
+```
+
 
 ## Aplicação cliente de exemplo
 
