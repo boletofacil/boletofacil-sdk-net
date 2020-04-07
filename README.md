@@ -156,6 +156,7 @@ Console.WriteLine(response);
 ```
 
 
+
 ## Aplicação cliente de exemplo
 
 Juntamente com o projeto do SDK há um outro projeto de um cliente de exemplo (aplicação console) que contém exemplos de todas as chamadas disponibilizadas pelo SDK.
@@ -164,4 +165,6 @@ Juntamente com o projeto do SDK há um outro projeto de um cliente de exemplo (a
 ## Suporte
 
 Em caso de dúvidas, problemas ou sugestões, não hesite em contatar nossa [equipe de suporte](mailto:suporte@boletobancario.com).
+
+
 
