@@ -18,22 +18,44 @@ namespace BoletoFacilSDK
     {
         readonly string version;
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.BoletoFacilBase(string)"
         protected BoletoFacilBase(string version)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.BoletoFacilBase(string)"
         {
             this.version = version;
             CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.ProxyAddress"
         public string ProxyAddress { get; private set; }
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.ProxyAddress"
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.ProxyUsername"
         public string ProxyUsername { get; private set; }
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.ProxyUsername"
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.ProxyPassword"
         public string ProxyPassword { get; private set; }
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.ProxyPassword"
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.Token"
         public string Token { get; protected set; }
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.Token"
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.PublicToken"
+        public string PublicToken { get; protected set; }
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.PublicToken"
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.BoletoFacilEnvironment"
         public BoletoFacilEnvironment BoletoFacilEnvironment { get ; protected set; }
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.BoletoFacilEnvironment"
+       
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.UseProxy"
         public bool UseProxy { get; private set; }
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.UseProxy"
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.MessageHandler"
         public HttpMessageHandler MessageHandler { private get; set; }
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.MessageHandler"
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.EndPoint"
         protected Uri EndPoint => BoletoFacilEnvironment.Equals(BoletoFacilEnvironment.Production)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.EndPoint"
             ? new Uri("https://www.boletobancario.com/boletofacil/integration/api/v1")
             : BoletoFacilEnvironment.Equals(BoletoFacilEnvironment.Sandbox)
                 ? new Uri("https://sandbox.boletobancario.com/boletofacil/integration/api/v1")
@@ -81,12 +103,16 @@ namespace BoletoFacilSDK
             return httpClient;
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.Request<T>(StringBuilder, ResponseType)"
         protected T Request<T>(StringBuilder requestUri, ResponseType responseType) where T : BaseResponse
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.Request<T>(StringBuilder, ResponseType)"
         {
             return Request<T>(HttpMethod.Get, requestUri, responseType);
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.PostRequest<T>(StringBuilder, ResponseType)"
         protected T PostRequest<T>(StringBuilder requestUri, ResponseType responseType) where T : BaseResponse
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.PostRequest<T>(StringBuilder, ResponseType)"
         {
             return Request<T>(HttpMethod.Post, requestUri, responseType);
         }
@@ -118,12 +144,23 @@ namespace BoletoFacilSDK
             throw new BoletoFacilRequestException((int)httpResponse.StatusCode, error);
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.AddTokenUriParameter(StringBuilder)"
         protected void AddTokenUriParameter(StringBuilder requestUri)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.AddTokenUriParameter(StringBuilder)"
         {
             AddUriParameter(requestUri, "token", Token);
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.AddPublicTokenUriParameter(StringBuilder)"
+        protected void AddPublicTokenUriParameter(StringBuilder requestUri)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.AddPublicTokenUriParameter(StringBuilder)"
+        {
+            AddUriParameter(requestUri, "publicToken", PublicToken);
+        }
+
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.AddUriParameter(StringBuilder, string, string)"
         protected void AddUriParameter(StringBuilder requestUri, string parameter, string value) 
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacilBase.AddUriParameter(StringBuilder, string, string)"
         {
             string separator = requestUri[requestUri.Length - 1] == '?' ? "": "&";
             requestUri.Append($"{separator}{parameter}={value}");
