@@ -9,47 +9,53 @@ namespace BoletoFacilSDK.Model.Entities
 {
     [DataContract]
     public class Charge : BaseEntity
-    {
-        [XmlElement("description"), XmlIgnore]
+    { 
+        [DataMember, XmlElement("description"), ]
         public string Description { get; set; }
-        [XmlElement("reference"), XmlIgnore]
+        [DataMember, XmlElement("reference"), ]
         public string Reference { get; set; }
-        [XmlElement("amount"), XmlIgnore]
+        [DataMember, XmlElement("amount"), ]
         public decimal? Amount { get; set; }
-        [JsonProperty("dueDate"), XmlIgnore, JsonConverter(typeof(DateTimeJsonConverter))]
+        [DataMember, XmlElement("totalAmount"),]
+        public decimal? TotalAmount { get; set; }
+        [JsonProperty("dueDate"), JsonConverter(typeof(DateTimeJsonConverter))]
         public DateTime DueDate { get; set; }
-        [XmlElement("installments"), XmlIgnore]
+        [DataMember, XmlElement("installments"), ]
         public int? Installments { get; set; }
-        [XmlElement("maxOverdueDays"), XmlIgnore]
+        [DataMember, XmlElement("maxOverdueDays"), ]
         public int? MaxOverdueDays { get; set; }
-        [XmlElement("fine"), XmlIgnore]
+        [DataMember, XmlElement("fine"), ]
         public decimal? Fine { get; set; }
-        [XmlElement("interest"), XmlIgnore]
+        [DataMember, XmlElement("interest"), ]
         public decimal? Interest { get; set; }
-        [XmlElement("discount"), XmlIgnore]
+        [DataMember, XmlElement("discount"), ]
         public Discount Discount { get; set; }
-        [XmlElement("payer"), XmlIgnore]
+        [DataMember, XmlElement("payer"), ]
         public Payer Payer { get; set; }
-        [XmlElement("billingAddress"), XmlIgnore]
+        [DataMember, XmlElement("billingAddress"), ]
         public Address BillingAddress { get; set; }
-        [XmlElement("notifyPayer"), XmlIgnore]
+        [DataMember, XmlElement("notifyPayer"), ]
         public bool? NotifyPayer { get; set; }
-        [XmlElement("notificationUrl"), XmlIgnore]
+        [DataMember, XmlElement("notificationUrl"), ]
         public string NotificationUrl { get; set; }
-        [XmlElement("referralToken"), XmlIgnore]
-        public string ReferralToken { get; set; }
-        [XmlElement("feeSchemaToken"), XmlIgnore]
+        [DataMember, XmlElement("feeSchemaToken"), ]
         public string FeeSchemaToken { get; set; }
-        [XmlElement("splitRecipient"), XmlIgnore]
+        [DataMember, XmlElement("splitRecipient"), ]
         public string SplitRecipient { get; set; }
-        [XmlElement("paymentTypes"), XmlIgnore]
+        [DataMember, XmlElement("referralToken"),]
+        public string ReferralToken { get; set; }
+        [DataMember, XmlElement("paymentTypes"), ]
         public PaymentType[] PaymentTypes { get; set; }
-        [XmlElement("creditCard"), XmlIgnore]
+        [DataMember, XmlElement("creditCard"), ]
         public CreditCard CreditCard { get; set; }
-        [XmlElement("paymentAdvance"), XmlIgnore]
+        [DataMember, XmlElement("paymentAdvance"), ]
         public bool? PaymentAdvance { get; set; }
-		[XmlElement("creditCardHash"), XmlIgnore]
+		[DataMember, XmlElement("creditCardHash"), ]
 		public string CreditCardHash { get; set; }
+        [DataMember, XmlElement("creditCardStore"),]
+        public bool? CreditCardStore { get; set; }
+        [DataMember, XmlElement("creditCardId"),]
+        public string CreditCardId { get; set; }
 
 
         [DataMember, XmlElement("code")]
