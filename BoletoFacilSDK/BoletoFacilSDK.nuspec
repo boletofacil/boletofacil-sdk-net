@@ -2,17 +2,17 @@
 <package >
   <metadata>
     <id>boletofacilsdk</id>
-    <version>1.0.2</version>
+    <version>1.0.8</version>
     <title>Boleto Fácil SDK .NET</title>
-    <authors>maurelio79</authors>
+    <authors>maurelio79, guilhermewrsales</authors>
     <owners>BoletoBancario.com</owners>
     <projectUrl>https://github.com/boletofacil/boletofacil-sdk-net</projectUrl>
-    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <license type="file">licenses\LICENSE-2.0.txt</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <tags>boleto boletofácil sdk net api</tags>
     <description>SDK .NET para integração com a API do Boleto Fácil.</description>
     <summary>SDK .NET para o Boleto Fácil.</summary>
-    <copyright>BoletoBancario.com 2018</copyright>
+    <copyright>BoletoBancario.com 2020</copyright>
     <releaseNotes>Versão inicial.</releaseNotes>
     <dependencies>
       <group targetFramework=".NETPortable4.5-Profile7">
@@ -21,6 +21,7 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="licenses\LICENSE-2.0.txt" target="licenses\LICENSE-2.0.txt" />
     <file src="bin/Release/BoletoFacilSDK.dll" target="lib/portable45-net45+win8/BoletoFacilSDK.dll" />
     <file src="bin/Release/BoletoFacilSDK.xml" target="lib/portable45-net45+win8/BoletoFacilSDK.xml" />
     <file src="readme.txt" target="" />

@@ -12,13 +12,12 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
     <Description>SDK .NET para integração com a API do Boleto Fácil.</Description>
-    <ReleaseVersion>1.0.2</ReleaseVersion>
     <PackageId>boletofacilsdk</PackageId>
-    <PackageVersion>1.0.5</PackageVersion>
-    <Authors>marco-boleto</Authors>
+    <PackageVersion>1.0.8</PackageVersion>
+    <Authors>marco-boleto, guilhermewrsales</Authors>
     <Owners>BoletoBancario.com</Owners>
     <Title>Boleto Fácil SDK .NET</Title>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseUrl>
+    <PackageLicenseFile>http://www.apache.org/licenses/LICENSE-2.0.html</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/boletofacil/boletofacil-sdk-net</PackageProjectUrl>
     <PackageReleaseNotes>Revisão na versão mínima necessária do pacote NewtonSoft.Json.</PackageReleaseNotes>
     <Summary>SDK .NET para o Boleto Fácil.</Summary>
@@ -88,6 +87,9 @@
     <Compile Include="Model\Entities\Enums\PaymentType.cs" />
     <Compile Include="Model\Entities\Enums\PaymentStatus.cs" />
     <Compile Include="Model\Entities\CreditCard.cs" />
+    <Compile Include="Model\Response\PublicKeyResponse.cs" />
+    <Compile Include="Model\Response\TokenizationResponse.cs" />
+    <Compile Include="Model\Entities\CreditCardTokenized.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BoletoFacilSDK.nuspec" />
@@ -97,7 +99,7 @@
   <ItemGroup />
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Js
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

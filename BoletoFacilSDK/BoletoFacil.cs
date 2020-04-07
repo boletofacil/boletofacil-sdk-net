@@ -16,74 +16,121 @@ namespace BoletoFacilSDK
     {
         const string VERSION = "1.0.0";
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.BoletoFacil(BoletoFacilEnvironment, string)"
         public BoletoFacil(BoletoFacilEnvironment boletoFacilEnvironment, string token)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.BoletoFacil(BoletoFacilEnvironment, string)"
             : base (VERSION)
         {
-            BoletoFacilEnvironment = boletoFacilEnvironment;
+
+            //if (String.IsNullOrEmpty(publicToken))
+            //{
+            //    throw new BoletoFacilTokenException("Token Público do favorecido inválido");
+            //}
+            //PublicToken = publicToken;
+
             if (String.IsNullOrEmpty(token))
             {
                 throw new BoletoFacilTokenException("Token do favorecido inválido");
             }
             Token = token;
+            BoletoFacilEnvironment = boletoFacilEnvironment;
         }
 
         #region API request methods
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.IssueCharge(Charge, ResponseType)"
         public ChargeResponse IssueCharge(Charge charge, ResponseType responseType = ResponseType.JSON)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.IssueCharge(Charge, ResponseType)"
         {
             StringBuilder requestUri = new StringBuilder($"{EndPoint}/issue-charge?");
             AddRequestParameters(requestUri, RequestType.IssueCharge, charge);
             return Request<ChargeResponse>(requestUri, responseType);
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.RequestTransfer(Transfer, ResponseType)"
         public TransferResponse RequestTransfer(Transfer transfer, ResponseType responseType = ResponseType.JSON)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.RequestTransfer(Transfer, ResponseType)"
         {
             StringBuilder requestUri = new StringBuilder($"{EndPoint}/request-transfer?");
             AddRequestParameters(requestUri, RequestType.RequestTransfer, transfer);
             return Request<TransferResponse>(requestUri, responseType);
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.ListCharges(ListChargesDates, ResponseType)"
         public ListChargesResponse ListCharges(ListChargesDates dates, ResponseType responseType = ResponseType.JSON)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.ListCharges(ListChargesDates, ResponseType)"
         {
             StringBuilder requestUri = new StringBuilder($"{EndPoint}/list-charges?");
             AddRequestParameters(requestUri, RequestType.ListCharges, dates);
             return Request<ListChargesResponse>(requestUri, responseType);
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.FetchBalance(ResponseType)"
         public FetchBalanceResponse FetchBalance(ResponseType responseType = ResponseType.JSON)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.FetchBalance(ResponseType)"
         {
             StringBuilder requestUri = new StringBuilder($"{EndPoint}/fetch-balance?");
             AddRequestParameters(requestUri, RequestType.FetchBalance, null);
             return Request<FetchBalanceResponse>(requestUri, responseType);
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.CancelCharge(Charge, ResponseType)"
         public CancelChargeResponse CancelCharge(Charge charge, ResponseType responseType = ResponseType.JSON)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.CancelCharge(Charge, ResponseType)"
         {
             StringBuilder requestUri = new StringBuilder($"{EndPoint}/cancel-charge?");
             AddRequestParameters(requestUri, RequestType.CancelCharge, charge);
             return Request<CancelChargeResponse>(requestUri, responseType);
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.CreatePayee(Payee, ResponseType)"
         public PayeeResponse CreatePayee(Payee payee, ResponseType responseType = ResponseType.JSON)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.CreatePayee(Payee, ResponseType)"
         {
             StringBuilder requestUri = new StringBuilder($"{EndPoint}/create-payee?");
             AddRequestParameters(requestUri, RequestType.CreatePayee, payee);
             return PostRequest<PayeeResponse>(requestUri, responseType);
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.CreatePayeeFeeSchema(Split, ResponseType)"
         public FeeSchemaResponse CreatePayeeFeeSchema(Split split, ResponseType responseType = ResponseType.JSON)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.CreatePayeeFeeSchema(Split, ResponseType)"
         {
             StringBuilder requestUri = new StringBuilder($"{EndPoint}/create-payee-fee-schema?");
             AddRequestParameters(requestUri, RequestType.CreatePayeeFeeSchema, split);
             return Request<FeeSchemaResponse>(requestUri, responseType);
         }
 
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.GetPayeeStatus(Payee, ResponseType)"
         public PayeeResponse GetPayeeStatus(Payee payee, ResponseType responseType = ResponseType.JSON)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.GetPayeeStatus(Payee, ResponseType)"
         {
             StringBuilder requestUri = new StringBuilder($"{EndPoint}/get-payee-status?");
             AddRequestParameters(requestUri, RequestType.GetPayeeStatus, payee);
             return Request<PayeeResponse>(requestUri, responseType);
         }
+
+#pragma warning disable CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.CardTokenization(Charge, ResponseType)"
+        public TokenizationResponse CardTokenization(Charge creditCardHash, ResponseType responseType = ResponseType.JSON)
+#pragma warning restore CS1591 // Comentário XML ausente para tipo publicamente visível ou membro "BoletoFacil.CardTokenization(Charge, ResponseType)"
+        {
+            StringBuilder requestUri = new StringBuilder($"{EndPoint}/card-tokenization?");
+            AddRequestParameters(requestUri, RequestType.CardTokenization, creditCardHash);
+            return PostRequest<TokenizationResponse>(requestUri, responseType);
+        }
+        //public PublicKeyResponse GetPublicEncryptionKey(ResponseType responseType = ResponseType.JSON)
+        //{
+        //    StringBuilder requestUri = new StringBuilder($"{EndPoint}/get-public-encryption-key.json?");
+        //    AddRequestParameters(requestUri, RequestType.GetPublicEncryptionKey, null);
+        //    return Request<PublicKeyResponse>(requestUri, responseType);
+        //}
+
+        //public CardHashResponse GetCreditCardHash(ResponseType responseType = ResponseType.JSON)
+        //{
+        //    StringBuilder requestUri = new StringBuilder($"{EndPoint}/get-credit-card-hash.json?");
+        //    AddRequestParameters(requestUri, RequestType.GetCreditCardHash, null);
+        //    return Request<CardHashResponse>(requestUri, responseType);
+        //}
 
         #endregion
 
@@ -124,7 +171,16 @@ namespace BoletoFacilSDK
                     Payee payeeToGetStatus = entity as Payee;
                     AddGetPayeeStatusParameters(requestUri, payeeToGetStatus);
                     break;
+                case RequestType.CardTokenization:
+                    Charge creditCardHash = entity as Charge;
+                    AddCardTokenizationParameters(requestUri, creditCardHash);
+                    break;
             }
+            //AddPublicTokenUriParameter(requestUri);
+            //switch (requestType)
+            //{
+                
+            //}
         }
 
         void AddIssueChargeParameters(StringBuilder requestUri, Charge charge)
@@ -160,7 +216,6 @@ namespace BoletoFacilSDK
             AddUriParameter(requestUri, "referralToken", charge.ReferralToken);
             AddUriParameter(requestUri, "paymentTypes", charge.PaymentTypes == null ? null : string.Join(",", charge.PaymentTypes));
             AddUriParameter(requestUri, "creditCardHash", $"{charge.CreditCardHash}");
-            AddUriParameter(requestUri, "creditCardStore", $"{charge.CreditCardStore}");
             AddUriParameter(requestUri, "creditCardId", $"{charge.CreditCardId}");
             AddUriParameter(requestUri, "paymentAdvance", $"{charge.PaymentAdvance}");
         }
@@ -236,6 +291,11 @@ namespace BoletoFacilSDK
             AddUriParameter(requestUri, "splitFixed", $"{split.SplitFixed:F2}");
             AddUriParameter(requestUri, "splitVariable", $"{split.SplitVariable:F2}");
             AddUriParameter(requestUri, "splitTriggerAmount", $"{split.SplitTriggerAmount:F2}");
+        }
+
+        void AddCardTokenizationParameters(StringBuilder requestUri, Charge creditCardHash)
+        {
+            AddUriParameter(requestUri, "creditCardHash", $"{creditCardHash.CreditCardHash}");
         }
 
         #endregion
