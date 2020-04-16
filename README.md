@@ -26,7 +26,7 @@ Para usar o SDK do Boleto Fácil é necessário definir dois itens:
 Exemplo:
 ```c#
 // Cria uma instância do SDK que irá enviar requisições ao ambiente de testes do Boleto Fácil (Sandbox)
-BoletoFacil boletoFacil = new BoletoFacil(BoletoFacilEnvironment.SANDBOX, "XYZ12345"); // XYZ12345 is the API key
+BoletoFacil boletoFacil = new BoletoFacil(BoletoFacilEnvironment.Sandbox, "XYZ12345"); // XYZ12345 is the API key
 ```
 
 ### Gerando uma cobrança
@@ -164,7 +164,7 @@ Juntamente com o projeto do SDK há um outro projeto de um cliente de exemplo (ap
 
 ## Suporte
 
-Em caso de dúvidas, problemas ou sugestões, não hesite em contatar nossa [equipe de suporte](mailto:suporte@boletobancario.com).
+Em caso de dúvidas, problemas ou sugestões, não hesite em contatar nossa [equipe de implantação](mailto:implantacao@juno.com.br).
 
 
 
